@@ -1,95 +1,78 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="fx.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="fx.js"></script>
   </head>
   <body>
-    <form name="add_position">
-      <table>
-        <tr>
-          <td>
-            <a href="http://www.yjfx.jp/gaikaex/information/outline/">評価レート</a>　：
-          </td>
-          <td>
-            <input type="text" name="hyoka_rate" value="117.815">
-          </td>
-          <td>
-            (初期値：2014/12/11 のレート)
-          </td>
-        </tr>
-        <tr>
-          <td>
-            資本金　　　：
-          </td>
-          <td>
-            <input type="text" name="resource" value="1000000">
-          </td>
-          <td>
-            円
-          </td>
-        </tr>
-        <tr>
-          <td>
-            基準　　　　：
-          </td>
-          <td>
-            <input type="text" name="standard" value="100">
-          </td>
-          <td>
-            円
-          </td>
-        </tr>
-        <tr>
-          <td>
-            変化する範囲：
-          </td>
-          <td>
-            <input type="text" name="pips" value="100">
-          </td>
-          <td>
-            pips
-          </td>
-        </tr>
-        <tr>
-          <td>
-            金額　　　　：
-          </td>
-          <td>
-            <input type="text" name="money">
-          </td>
-          <td>
-            円
-          </td>
-        </tr>
-        <tr>
-          <td>
-            枚数（１万）：
-          </td>
-          <td>
-            <input type="text" name="maisu" value="10000">
-          </td>
-          <td>
-            円
-          </td>
-        </tr>
-        <tr>
-          <td>ポジション　：</td>
-          <td>
-            <input type="radio" name="position" value="kai" checked>買い
-            <input type="radio" name="position" value="uri" >売り
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>
-            <input type="button" value="更新" onClick="show_list()">
-            <input type="button" value="追加" onClick="add()">
-            <input type="reset" value="取消" onClick="clear()">
-          </td>
-        </tr>
-      </table>
-    </form>
-    損益計算
+    <h2>設定</h2>
+    <div class="form-group settings">
+      <form name="add_position">
+        <div class="form-group">
+          <h3><a href="http://www.yjfx.jp/gaikaex/information/outline/" target="_blank">評価レート</a></h3>
+          <input type="text" class="form-control" value="117.815" name="hyoka_rate">
+        </div>
+        <div class="form-group">
+          <h3>資本金</h3>
+          <input type="text" class="form-control" value="1000000" name="resource">
+        </div>
+        <div class="form-group">
+          <h3>基準</h3>
+          <input type="text" class="form-control" value="100" name="standard">
+        </div>
+        <div class="form-group">
+          <h3>ロスカットアラート</h3>
+          <div class="input-group">
+            <input type="text" class="form-control" value="100" name="alert">
+            <div class="input-group-addon">%</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <h3>変化する範囲</h3>
+          <div class="input-group">
+            <input type="text" class="form-control" value="100" name="pips">
+            <div class="input-group-addon">pips</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <h3>金額</h3>
+          <input type="text" class="form-control" value="100.000" name="money">
+        </div>
+        <div class="form-group">
+          <h3>枚数（１万）</h3>
+          <div class="input-group">
+            <input type="text" class="form-control" value="1" name="maisu">
+            <div class="input-group-addon">枚</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <h3>ポジション</h3>
+          <div class="radio">
+            <label>
+              <input type="radio" name="position" value="kai" checked>
+              買い
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="position" value="uri">
+              売り
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="button" class="btn btn-default" value="更新" onClick="show_list()">
+          <input type="button" class="btn btn-primary" value="追加" onClick="add()">
+          <input type="reset" class="btn btn-danger" value="取消" onClick="clear()">
+        </div>
+      </form>
+    </div>
+
+    <h1>損益計算</h1>
     <div id="list">
     </div>
   </body>
